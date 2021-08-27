@@ -3,7 +3,7 @@ import { Text, Button, View } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 
 export default class AuthScreen extends React.Component {
-  
+
   isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
       var providerData = firebaseUser.providerData;
@@ -20,7 +20,7 @@ export default class AuthScreen extends React.Component {
     return false;
   };
 
-  onSignIn = googleUser => {
+  onSignIn = (googleUser) => {    
     var unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
       unsubscribe();
       if (!this.isUserEqual(googleUser, firebaseUser)) {
@@ -45,7 +45,10 @@ export default class AuthScreen extends React.Component {
                   last_name: result.additionalUserInfo.profile.family_name,
                   current_theme: "dark"
                 })
-                .then(function (snapshot) { });
+                .then((snapshot)=> { 
+                  console.log('bye');
+                  this.props.navigation.navigate("TabNavigator");
+                });
             }
           })
           .catch(error => {
@@ -55,13 +58,12 @@ export default class AuthScreen extends React.Component {
             var credential = error.credential;
           });
       } else {
-        console.log("User already signed-in Firebase.");
-      }
+        console.log("User already signed-in Firebase.");        
+      }      
     });
   };
-  
+
   signInWithGoogleAsync = async () => {
-    console.log("hi")
     try {
       const result = await Google.logInAsync({
         behaviour: 'web',
@@ -69,8 +71,9 @@ export default class AuthScreen extends React.Component {
         iosClientId: "281650545908-2ci8miikk37n1gf9mfchi09j85qtkh3a.apps.googleusercontent.com",
         scopes: ['profile', 'email'],
       });
-      if (result.type == 'success') {
+      if (result.type == 'success') {        
         this.props.navigation.navigate("TabNavigator");
+        this.onSignIn(result);
         return result.accessToken;
       }
       else {
@@ -85,7 +88,7 @@ export default class AuthScreen extends React.Component {
   render() {
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        <Button title="Sign in" onPress={() =>  this.signInWithGoogleAsync()}/>        
+        <Button title="Sign in" onPress={() => this.signInWithGoogleAsync()} />
       </View>
     );
   }

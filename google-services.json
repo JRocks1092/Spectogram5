@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "281650545908",
+    "firebase_url": "https://story-app-c8c62-default-rtdb.firebaseio.com",
+    "project_id": "story-app-c8c62",
+    "storage_bucket": "story-app-c8c62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281650545908:android:573ad2963dfeebfd2fcaa1",
+        "android_client_info": {
+          "package_name": "storyteller_1.android.package"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281650545908-rh3p32rilbseoeuq2v9n0mmtvh8v7urq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "storyteller_1.android.package",
+            "certificate_hash": "aaeaae7709acf434b242a45c6b3061c014f7d769"
+          }
+        },
+        {
+          "client_id": "281650545908-ami4l39rt5njlnakih7jepej0g52h5v1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3lhZq-BflZq8rJwIVCaLHRM8sX1hWAr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281650545908-ami4l39rt5njlnakih7jepej0g52h5v1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "281650545908-2ci8miikk37n1gf9mfchi09j85qtkh3a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "StoryTeller"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
